@@ -1,4 +1,5 @@
 import App from "../App";
+import Connexion from "../pages/User/Accueil/authentification/Connexion";
 import Inscription from "../pages/User/Accueil/authentification/Inscription";
 
  export const Router = [
@@ -6,6 +7,12 @@ import Inscription from "../pages/User/Accueil/authentification/Inscription";
     {
       path: "/",
       element: <App />
+    },
+
+    /****** Autentification ********/
+    {
+      path: "/Connexion",
+      element: <Connexion />
     },
     {
       path: "/Inscription",

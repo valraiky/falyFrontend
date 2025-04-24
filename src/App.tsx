@@ -1,9 +1,10 @@
-import Accuieil from "./pages/User/Accueil/Accuieil";
+import { DataProvider } from "./context/DataContext";
+import Accueil from "./pages/User/Accueil/Accuieil";
 
 export default function App() {
     return (
-       <div>
-            <Accuieil />
-       </div>
+      <DataProvider>
+        <Accueil />
+      </DataProvider>
     );
 }

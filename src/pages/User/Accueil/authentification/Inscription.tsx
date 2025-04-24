@@ -10,6 +10,7 @@ import { validateEmail } from "./validation/Email";
 import { validatePassword } from "./validation/Password";
 import InputSubmit from "../../../../Components/Ui/Input/InputSubmit";
 import HeaderClient from "../../../../Components/header/HeaderClient";
+import { DataProvider } from "../../../../context/DataContext";
 
 
 
@@ -35,17 +36,19 @@ export default function Inscription() {
     
   return (
     <>
+      <DataProvider>
         <HeaderClient />
         <div className="w-full flex justify-center items-center h-[830px] ">
             <form onSubmit={handleSubmit(onSubmit)} className="w-[500px] pb-8 bg-black rounded-xl p-4">
                 <h1 className="text-4xl mt-4 mb-4 font-bold text-center text-white">Inscription</h1>
                 {errorServer && <h1 className="p-2 bg-red-600 text-red-500 bg-opacity-10 text-center"> {errorServer} </h1> }
-                <InputText label="Nom" register={register("username",validateName)} Err={errors.username?.message}/>
+                <InputText label="Nom" register={register("fullname",validateName)} Err={errors.fullname?.message}/>
                 <InputText label="Email" register={register("email",validateEmail)} Err={errors.email?.message}/>
-                <InputText show={true} label="Mot de passe" register={register("password",validatePassword)} Err={errors.password?.message}/>
+                <InputText show={true} label="Mot de passe" register={register("passwordHash",validatePassword)} Err={errors.passwordHash?.message}/>
                 <InputSubmit />
            </form>
         </div>
+      </DataProvider>
     </>
   )
 }

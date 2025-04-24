@@ -8,7 +8,6 @@ import { IoIosClose } from "react-icons/io";
 
 
 export default function HeaderClient() {
-  const [token,setToken] = useState("")
   const [isShow, setIsShow] = useState(false);
   return (
     <div className="w-full m-0">
@@ -27,7 +26,7 @@ export default function HeaderClient() {
          </div>
 
          <div>
-            <Auth token={token!} setToken={setToken} />
+            <Auth />
          </div>
 
           {

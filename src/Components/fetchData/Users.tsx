@@ -1,25 +1,28 @@
 import axios from "axios";
 import { User } from "../typescript/User";
 
-export const addUser = async (newUser: User) => {
-    const response = await axios.post('http://localhost:3030/api/users', newUser);
-    return response.data
-  };
-  export const EditUser = async (newUser: User,id : number,token: string) => {
-    const response = await axios.put(`http://localhost:3030/api/users/${id}`, newUser , {
-        headers: {
-            authorization: `Bearer ${token}`
-        }
-    });
-    return response.data
-  };
+    export const addUser = async (newUser: User) => {
+        const response = await axios.post('http://localhost:3000/api/auth/register', newUser);
+        
+        return response.data
+    };
 
-export const fetchUser = async (token: string) => {
-    const res = await axios.get(`http://localhost:3030/api/users`, {
-        headers: {
-            authorization: `Bearer ${token}`
-        }
-    })
+    export const EditUser = async (newUser: User,id : number,token: string) => {
+        const response = await axios.put(`http://localhost:3000/api/users/${id}`, newUser , {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        });
+        
+        return response.data
+    };
 
-    return res.data.data
-}
+    export const fetchUser = async (token: string) => {
+        const res = await axios.get(`http://localhost:3000/api/users`, {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        })
+
+        return res.data.data
+    }
